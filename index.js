@@ -21,6 +21,7 @@ webpush.setVapidDetails(
 );
 
 // Subscribe Route
+// mỗi lần có một post mới thì server sẽ gửi về client một message
 app.post("/subscribe", (req, res) => {
   // Get pushSubscription object
   const subscription = req.body;
