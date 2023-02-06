@@ -23,16 +23,19 @@ async function send() {
   });
   console.log("Push Registered...");
 
-  // Send Push Notification
-  console.log("Sending Push...");
-  await fetch("/subscribe", {
-    method: "POST",
-    body: JSON.stringify(subscription),
-    headers: {
-      "content-type": "application/json"
-    }
-  });
-  console.log("Push Sent...");
+
+  const button = document.getElementById('button')
+  button.onclick = async () => {
+    console.log("Sending Push...");
+    await fetch("/subscribe", {
+      method: "POST",
+      body: JSON.stringify(subscription),
+      headers: {
+        "content-type": "application/json"
+      }
+    });
+    console.log("Push Sent...");
+  }
 }
 
 function urlBase64ToUint8Array(base64String) {
@@ -49,3 +52,4 @@ function urlBase64ToUint8Array(base64String) {
   }
   return outputArray;
 }
+
